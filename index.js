@@ -16,9 +16,15 @@ The function should:
 */
 
 
-function createMenuItem(/*Your code here*/){
-  /*Your code here*/
+function createMenuItem(name, price, category){
+  const obj = {
+    name: name,
+    price: price,
+    category: category
+  };
+  return obj;
 }
+// console.log('Task 1a - ', createMenuItem('tacos', 8, 'Lunch'));
 
 
 
@@ -31,6 +37,15 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+
+createMenuItem('Burger', 7, 'Lunch');
+// console.log('Task 1b -', createMenuItem('Burger', 7, 'Lunch'));
+createMenuItem('Steak', 16, 'Dinner');
+// console.log('Task 1b -', createMenuItem('Steak', 16, 'Dinner'));
+createMenuItem('Bacon Egg and Cheese', 4, 'Breakfast');
+// console.log('Task 1b - ', createMenuItem('Bacon Egg and Cheese', 4, 'Breakfast'));
+
+
 
 
 
@@ -51,8 +66,19 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function(string){
+    if(string === 'teacher' || string === 'student'){
+      const discountOne = burger.price - burger.price*.25;
+      // console.log('task 2 teacher student discount', discountOne);
+      return discountOne;
+    } else if (string === 'public'){
+      const discountTwo = burger.price - burger.price*.1;
+      // console.log('task 2 public discount', discountTwo);
+      return discountTwo;
+    }
+  }
 }
+// console.log(burger.discount('public'));
 
 
 
@@ -73,7 +99,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
+// console.log('Task 3 - ', reviews[5].feedback);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -81,7 +107,7 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
+// console.log('Task 4 -', reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays");
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that creates an object with name, rating, feedback, add the new review to the end of an array and returns the resulting array
@@ -93,10 +119,27 @@ Write a function that creates an object with name, rating, feedback, add the new
 */
 
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(array, name, rating, feedback){
+  // const newReview = [];
+  // const obj = {
+  //   name: name,
+  //   rating: rating,
+  //   feedback: feedback
+  // };
+
+  // for(let i = 0; i < array.length; i++){
+  //     obj.name = array[i].name;
+  //     obj.rating = array[i].rating;
+  //     obj.feedback = array[i].feedback;
+  //     newReview.push(obj);
+  //     return newReview;
+  // }
+
+
+
 }
 
+// console.log(addReview(reviews, "Jack", 3, "A little too hipster for my taste, but the burger was decent, if overpriced"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -110,10 +153,10 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, int) {
+  return `${array[int].name} gave the restaurant a ${array[int].rating} star review, and their feedback was: ${array[int].feedback}`
 }
-
+console.log(getReviewByIndex(reviews, 5));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -129,10 +172,16 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  let lastIndex = 0;
+  for(let i = 0; i < array.length; i++){
+    console.log('Getting last array, please hold...');
+    lastIndex++;
+  }
+  return `${array[lastIndex-1].name} gave the restaurant a ${array[lastIndex-1].rating} star review, and their feedback was: ${array[lastIndex - 1].feedback}`;
 } 
 
+console.log(getLastReview(reviews));
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
